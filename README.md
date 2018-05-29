@@ -12,12 +12,12 @@
 ## Controller-Sequencer
 The control unit is the key to a computer's automatic operation. It generates the control words that fetch an execute each instruction, and while each instruction is processed, the computer passes through different timing states (T-states) which are preriods during which register contents change.
 
-## Ring Counter
-#### These are the schematics for the ring counter. It produces 6 different T-states (3 for the fetch cycle, 3 for execution cycle).
+### Ring Counter
+These are the schematics for the ring counter. It produces 6 different T-states (3 for the fetch cycle, 3 for execution cycle).
 ![Schematics](img/ring_counter_2.PNG "Ring counter schematics")
 
 
-#### Timing signals
+Timing signals
 ![Timing signals](img/ring_counter.PNG "Timing signals")
 
 ### Control Word CON
