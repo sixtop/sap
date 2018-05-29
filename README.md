@@ -2,14 +2,15 @@
 ![SAP1 Architecture](img/sap1_architecture.PNG "SAP1 architecture")
 
 ## Program counter
-
+//TODO
 ## Input and MAR
-
+//TODO
 ## RAM
-
+//TODO
 ## Instruction Register
-
+//TODO
 ## Controller-Sequencer
+//TODO
 ### Control Word CON
 The control word determines how the registers will react to the next positive CLK edge.
 
@@ -29,11 +30,11 @@ The control word determines how the registers will react to the next positive CL
 * ~Lo
 
 ## Accumulator
-
+//TODO
 ## Adder-Substracter
-
+//TODO
 ## Display
-
+//TODO
 # Instruction Set
 | Mnemonic      | Opcode           | Operation  |
 | ------------- |:----------------:| ---------- |
