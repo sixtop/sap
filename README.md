@@ -12,12 +12,14 @@
 ## Controller-Sequencer
 The control unit is the key to a computer's automatic operation. It generates the control words that fetch an execute each instruction, and while each instruction is processed, the computer passes through different timing states (T-states) which are preriods during which register contents change.
 
+Notice that a positive CLK edge occurs midway through each T state.
+
 ### Ring Counter
 These are the schematics for the ring counter. It produces 6 different T-states (3 for the fetch cycle, 3 for execution cycle).
 ![Schematics](img/ring_counter_2.PNG "Ring counter schematics")
 
 
-Timing signals
+### Timing signals
 ![Timing signals](img/ring_counter.PNG "Timing signals")
 
 ### Control Word CON
@@ -25,7 +27,7 @@ The control word determines how the registers will react to the next positive CL
 
 * Cp - Increments program counter. Only active in Increment State (T2)
 * Ep - Enables output for the Program Counter module. Only active in Address State (T1)
-* ~Lm
+* ~Lm - 
 * ~CE
 
 * ~Li
@@ -54,8 +56,6 @@ The control word determines how the registers will react to the next positive CL
 | HLT           | 1111              | Stop processing |
 
 # Fetch cycle
-
-
 ### Address State (T1)
 During this state, the Program Counter (PC) is transferred to the Memory Address Register (MAR) via the system bus. Both Ep and ~Lm are active in this state.
 
@@ -66,6 +66,7 @@ The program counter (PC) is incremented. Only the Cp bit is active.
 The addressed RAM instruction (currently on the bus) is transferred from the memory to the instruction register. The active control bits are ~CE and ~Li.
 
 # Execution cycle
+On the next three states (T4, T5, T6), the register transfers during the execution depend on the particular instruction being executed.
 ### LDA routine
 ### ADD routine
 ### SUB routine
