@@ -95,9 +95,9 @@ Example instruction being loaded into IR: ADD BH
 The SUB routine is similar to the ADD routine, but during the T6 state, a high Su is also sent to the adder-subtracter.
 
 ### OUT routine
-* The instruction field goes to the controller-sequencer for decoding, then the controller sequencer sends out the control word needed to load the accumulator contents (Ea) into the output register ~Lo.
-* No-op
-* No-op
+* T4: The instruction field goes to the controller-sequencer for decoding, then the controller sequencer sends out the control word needed to load the accumulator contents (Ea) into the output register ~Lo.
+* T5: No-op
+* T6: No-op
 
 ### HLT routine
 
