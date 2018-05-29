@@ -1,5 +1,5 @@
-# SAP v1 architecture
-
+# SAP-1 architecture
+![SAP1 Architecture](img/sap1_architecture.PNG "SAP1 architecture")
 ## Ring Counter
 #### These are the schematics for the ring counter. It produces 6 different T-states (3 for the fetch cycle, 3 for execution cycle).
 ![Schematics](img/ring_counter_2.PNG "Ring counter schematics")
