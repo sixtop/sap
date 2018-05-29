@@ -18,8 +18,9 @@
 * ~Lo
 
 ### Ring Counter
-![Symbol and timing signals](img/ring_counter.png "Symbol and timing signals")
-![Schematics](img/ring_counter_2.png "Ring counter schematics")
+![Symbol and timing signals](img/ring_counter.PNG "Symbol and timing signals")
+
+![Schematics](img/ring_counter_2.PNG"Ring counter schematics")
 
 ### Instruction Set
 * LDA - Load the accumulator
