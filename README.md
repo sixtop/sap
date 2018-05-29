@@ -90,7 +90,10 @@ Example instruction being loaded into IR: ADD BH
 * During the T4 state, the instruction field (0001) goes to the controller-sequencer, where it is decoded. Also, the address field (1011) is loaded into MAR. ~Ei abd ~Lm are both active in this state.
 * Control bits ~CE and ~Lb are active during the T5 state, this allows the addressed RAM word to set up the B register.
 * During the T6 state, Eu and ~La bits are active; therefore, the adder-subtracter set up the accumulator.
+
 ### SUB routine
+The SUB routine is similar to the ADD routine, but during the T6 state, a high Su is also sent to the adder-subtracter.
+
 ### HLT routine
 
 
