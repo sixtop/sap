@@ -65,6 +65,8 @@ The program counter (PC) is incremented. Only the Cp bit is active.
 ### Memory State (T3)
 The addressed RAM instruction (currently on the bus) is transferred from the memory to the instruction register (IR). The active control bits are ~CE and ~Li.
 
+![Fetch cycle](img/fetch_cycle.PNG "")
+
 # Execution cycle
 On the next three states (T4, T5, T6), the register transfers during the execution depend on the particular instruction being executed.
 ### LDA routine
