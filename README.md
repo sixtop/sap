@@ -18,9 +18,16 @@
 * ~Lo
 
 ### Ring Counter
-![Symbol and timing signals](img/ring_counter.PNG "Symbol and timing signals")
+These are the schematics for the ring counter. It produces 6 different states (3 for the fetch cycle, 3 for execution cycle).
 
 ![Schematics](img/ring_counter_2.PNG "Ring counter schematics")
+
+
+Timing signals
+
+![Symbol and timing signals](img/ring_counter.PNG "Symbol and timing signals")
+
+
 
 ### Instruction Set
 * LDA - Load the accumulator
