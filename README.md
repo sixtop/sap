@@ -63,13 +63,33 @@ During this state, the Program Counter (PC) is transferred to the Memory Address
 The program counter (PC) is incremented. Only the Cp bit is active.
 
 ### Memory State (T3)
-The addressed RAM instruction (currently on the bus) is transferred from the memory to the instruction register. The active control bits are ~CE and ~Li.
+The addressed RAM instruction (currently on the bus) is transferred from the memory to the instruction register (IR). The active control bits are ~CE and ~Li.
 
 # Execution cycle
 On the next three states (T4, T5, T6), the register transfers during the execution depend on the particular instruction being executed.
 ### LDA routine
+Example instruction being loaded into IR: LDA 9H
+
+ **IR** = 0000 1001
+
+* During the T4 state, the instruction field (0000) goes to the controller-sequencer, where it is decoded. Also, the address field (1001) is loaded into MAR. ~Ei abd ~Lm are both active in this state.
+* During T5, ~CE and ~La go low. This means that the addressed data word in the RAM will be loaded into the accumulator on the next positive clock edge.
+* T6 is a no-operation state for the LDA routine, in which all registers are inactive.
+
+![LDA routine](img/LDA_routine.PNG "LDA routine")
+
+![LDA routine](img/LDA_routine_timing.PNG "LDA routine")
+
 ### ADD routine
+Example instruction being loaded into IR: ADD BH
+
+ **IR** = 0001 1011
+ 
+* During the T4 state, the instruction field (0001) goes to the controller-sequencer, where it is decoded. Also, the address field (1011) is loaded into MAR. ~Ei abd ~Lm are both active in this state.
+* Control bits ~CE and ~Lb are active during the T5 state, this allows the addressed RAM word to set up the B register.
+* During the T6 state, Eu and ~La bits are active; therefore, the adder-subtracter set up the accumulator.
 ### SUB routine
 ### HLT routine
+
 
 
