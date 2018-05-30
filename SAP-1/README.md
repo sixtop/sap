@@ -38,6 +38,11 @@ Notice that a positive CLK edge occurs midway through each T state.
 
 ![SAP1 Controller](img/logisim_Controller.PNG "")
 
+![SAP1 Control Matrix](img/logisim_control_matrix.PNG "")
+
+![SAP1 Instruction decoder](img/logisim_instruction_decoder.PNG "")
+
+
 ### Ring Counter
 These are the schematics for the ring counter. It produces 6 different T-states (3 for the fetch cycle, 3 for execution cycle).
 ![Schematics](img/ring_counter_2.PNG "Ring counter schematics")
