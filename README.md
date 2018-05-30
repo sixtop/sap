@@ -13,11 +13,17 @@
 
 
 ## Input and MAR
-//TODO
+* It includes the address and data switch registers allow you to send 4 address bits and 8 data bits to the RAM.
+* During a computer run, the address in the *PC* is latched into the MAR. Later, the MAR applies this 4-bit address to the RAM where a read operation is performed.
+
 ## RAM
-//TODO
+* The RAM is a 16 x 8 static TTL RAM.
+* The RAM receives 4-bit addresses from the MAR and a read operation is performed, so the instruction or data word stored in the RAM is palced on the W bus.
+
 ## Instruction Register
-//TODO
+* To fetch an isntruction from the memory the computer does a memory read operation. At the same time, the instruction register is set up for laoding on the next positive clock edge.
+* the contents of the *IR* are split into two nibbles. The upper nibble is a two-state output that goes directly to the Controller-Sequencer. The lower nibble is a three-state output that is read onto the W bus when needed.
+
 ## Controller-Sequencer
 The control unit is the key to a computer's automatic operation. It generates the control words that fetch an execute each instruction, and while each instruction is processed, the computer passes through different timing states (T-states) which are preriods during which register contents change.
 
@@ -50,11 +56,34 @@ The control word determines how the registers will react to the next positive CL
 * ~L<sub>O</sub>
 
 ## Accumulator
-//TODO
+* The Accumulator *A* is a buffer register tat stores intemediate answers during a computer run.
+* The accumulator has two outputs. The two-state output goes directly to the adder-subtracter and the three-state output goes to the W bus.
+
 ## Adder-Substracter
-//TODO
+* SAP-1 uses a 2's complement adder-subtracter. When S<sub>U</sub> is low, the sum output is:
+
+**S = A + B**
+
+* When S<sub>U</sub> is high, the difference appears:
+
+**S = A + B'**
+
+* The adder-subtracter is *asynchronous* (unclocked); this means its contents can change as soon as the input words change.
+* When E<sub>U</sub> is high, these contents appear on the W bus.
+
+## B register
+* The B register is another buffer register used in arithmetic operations.
+* A low ~L<sub>B</sub> and positive clock edge load the word on the W bus into the B register.
+* The two-state output drives the adder-subtracter, supplying the number to be added or subtracted from the contents of the accumulator.
+
+## Output register
+* At the end of the computer run, the accumulator contains the answer to the problem being solved. At this point we need to transfer the answer to the outside world.
+* When E<sub>A</sub> is high and ~L<sub>O</sub> is low, the next positive clock edge loads the accumulator word into the ouput register.
+
 ## Display
-//TODO
+* The binary dispaly is a row of eight light-emmitting diodes. 
+* because each LED connects to one flip-flop of the output port, the binary display shows us the contents of the output port.
+
 # Instruction Set
 | Mnemonic      | Opcode           | Operation  |
 | ------------- |:----------------:| ---------- |
