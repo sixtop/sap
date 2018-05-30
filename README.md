@@ -1,8 +1,17 @@
 # SAP-1 architecture
-![SAP1 Architecture](img/sap1_architecture.PNG "SAP1 architecture")
+* Bus-organized computer.
+* All register outputs to the W bus are three-state.
+
+![SAP1 Architecture](img/sap1_architecture.PNG "")
 
 ## Program counter
-//TODO
+* The PC is stored at the beginning of the memory with the first instruction at binary address 0000. 
+* The PC module counts from 0000 to 1111.
+* Its job is to send the memory address of the next instruction to be fetched and executed.
+
+![SAP1 Program Counter](img/program_counter.PNG "")
+
+
 ## Input and MAR
 //TODO
 ## RAM
@@ -25,20 +34,20 @@ These are the schematics for the ring counter. It produces 6 different T-states 
 ### Control Word CON
 The control word determines how the registers will react to the next positive CLK edge.
 
-* Cp - Increments program counter. Only active in Increment State (T2)
-* Ep - Enables output for the Program Counter module. Only active in Address State (T1)
-* ~Lm - 
+* C<sub>P</sub> - Increments program counter. Only active in Increment State (T2)
+* E<sub>P</sub> - Enables output for the Program Counter module. Only active in Address State (T1)
+* ~L<sub>M</sub> - 
 * ~CE
 
-* ~Li
-* ~Ei
-* ~La
-* Ea
+* ~L<sub>I</sub>
+* ~E<sub>I</sub>
+* ~L<sub>A</sub>
+* E<sub>A</sub>
 
-* Su
-* Eu
-* ~Lb
-* ~Lo
+* S<sub>U</sub>
+* E<sub>U</sub>
+* ~L<sub>B</sub>
+* ~L<sub>O</sub>
 
 ## Accumulator
 //TODO
