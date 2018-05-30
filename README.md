@@ -129,6 +129,10 @@ Example instruction being loaded into IR: ADD BH
 * Control bits ~CE and ~L<sub>B</sub> are active during the T5 state, this allows the addressed RAM word to set up the B register.
 * During the T6 state, E<sub>U</sub> and ~L<sub>A</sub> bits are active; therefore, the adder-subtracter set up the accumulator.
 
+![Add routine](img/add_sub_routines.PNG "")
+
+![Fetch add timing](img/fetch_add_timing.PNG "")
+
 ### SUB routine
 The SUB routine is similar to the ADD routine, but during the T6 state, a high S<sub>U</sub> is also sent to the adder-subtracter.
 
@@ -136,6 +140,10 @@ The SUB routine is similar to the ADD routine, but during the T6 state, a high S
 * T4: The instruction field goes to the controller-sequencer for decoding, then the controller sequencer sends out the control word needed to load the accumulator contents (E<sub>A</sub>) into the output register ~L<sub>O</sub>.
 * T5: No-op
 * T6: No-op
+
+![Out routine](img/out_routine.PNG "")
+
+![Out timing](img/out_timing.PNG "")
 
 ### HLT routine
 
