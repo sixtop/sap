@@ -21,7 +21,7 @@
 * The RAM receives 4-bit addresses from the MAR and a read operation is performed, so the instruction or data word stored in the RAM is palced on the W bus.
 
 ## Instruction Register
-* To fetch an isntruction from the memory the computer does a memory read operation. At the same time, the instruction register is set up for laoding on the next positive clock edge.
+* To fetch an instruction from the memory the computer does a memory read operation. At the same time, the instruction register is set up for laoding on the next positive clock edge.
 * the contents of the *IR* are split into two nibbles. The upper nibble is a two-state output that goes directly to the Controller-Sequencer. The lower nibble is a three-state output that is read onto the W bus when needed.
 
 ## Controller-Sequencer
@@ -40,20 +40,20 @@ These are the schematics for the ring counter. It produces 6 different T-states 
 ### Control Word CON
 The control word determines how the registers will react to the next positive CLK edge.
 
-* C<sub>P</sub> - Increments program counter. Only active in Increment State (T2)
-* E<sub>P</sub> - Enables output for the Program Counter module. Only active in Address State (T1)
-* ~L<sub>M</sub> - 
-* ~CE
+* C<sub>P</sub> - Increments program counter. Only active in Increment State (T2).
+* E<sub>P</sub> - Enables output for the Program Counter module. Only active in Address State (T1).
+* ~L<sub>M</sub> - Latch lower W bus nibble on the MAR.
+* ~CE - Chip enable for the ROM module.
 
-* ~L<sub>I</sub>
-* ~E<sub>I</sub>
-* ~L<sub>A</sub>
-* E<sub>A</sub>
+* ~L<sub>I</sub> - Latch W bus word on the instruction register.
+* ~E<sub>I</sub> - Enable instruction register output.
+* ~L<sub>A</sub> - Latch W bus word on the accumulator.
+* E<sub>A</sub> - Enable accumulator ouput..
 
-* S<sub>U</sub>
-* E<sub>U</sub>
-* ~L<sub>B</sub>
-* ~L<sub>O</sub>
+* S<sub>U</sub> - Add or sustract flag.
+* E<sub>U</sub> - Enable adder/sustractor output.
+* ~L<sub>B</sub> - Latch W bus word on the B register.
+* ~L<sub>O</sub> - Latch W bus word on the Output register.
 
 ## Accumulator
 * The Accumulator *A* is a buffer register tat stores intemediate answers during a computer run.
