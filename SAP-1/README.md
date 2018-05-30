@@ -146,6 +146,8 @@ The SUB routine is similar to the ADD routine, but during the T6 state, a high S
 ![Out timing](img/out_timing.PNG "")
 
 ### HLT routine
-
+* HLT does not require a control routine because no registers are involved in the execution of an HLT instruction.
+* When the **IR = 1111 XXXX**,  the instruction field 1111 signals the controller-sequencer to stop processing data.
+* The controller-sequencer stops the computer by turning off the clock.
 
 
