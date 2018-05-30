@@ -13,10 +13,13 @@
 
 ![SAP1 Program Counter](img/program_counter.PNG "")
 
+![SAP1 Program Counter](img/logisim_program_counter.PNG "")
 
 ## Input and MAR
 * It includes the address and data switch registers allow you to send 4 address bits and 8 data bits to the RAM.
 * During a computer run, the address in the *PC* is latched into the MAR. Later, the MAR applies this 4-bit address to the RAM where a read operation is performed.
+
+![SAP1 MAR](img/logisim_mar.PNG "")
 
 ## RAM
 * The RAM is a 16 x 8 static TTL RAM.
@@ -26,15 +29,20 @@
 * To fetch an instruction from the memory the computer does a memory read operation. At the same time, the instruction register is set up for laoding on the next positive clock edge.
 * the contents of the *IR* are split into two nibbles. The upper nibble is a two-state output that goes directly to the Controller-Sequencer. The lower nibble is a three-state output that is read onto the W bus when needed.
 
+![SAP1 IR](img/logisim_instruction_register.PNG "")
+
 ## Controller-Sequencer
 The control unit is the key to a computer's automatic operation. It generates the control words that fetch an execute each instruction, and while each instruction is processed, the computer passes through different timing states (T-states) which are preriods during which register contents change.
 
 Notice that a positive CLK edge occurs midway through each T state.
 
+![SAP1 Controller](img/logisim_Controller.PNG "")
+
 ### Ring Counter
 These are the schematics for the ring counter. It produces 6 different T-states (3 for the fetch cycle, 3 for execution cycle).
 ![Schematics](img/ring_counter_2.PNG "Ring counter schematics")
 
+![SAP1 Ring counter](img/logisim_ring_counter.PNG "")
 
 ### Timing signals
 ![Timing signals](img/ring_counter.PNG "Timing signals")
@@ -61,6 +69,8 @@ The control word determines how the registers will react to the next positive CL
 * The Accumulator *A* is a buffer register tat stores intemediate answers during a computer run.
 * The accumulator has two outputs. The two-state output goes directly to the adder-subtracter and the three-state output goes to the W bus.
 
+![Accumulator](img/logisim_accumulator.PNG "")
+
 ## Adder-Substracter
 * SAP-1 uses a 2's complement adder-subtracter. When S<sub>U</sub> is low, the sum output is:
 
@@ -73,14 +83,20 @@ The control word determines how the registers will react to the next positive CL
 * The adder-subtracter is *asynchronous* (unclocked); this means its contents can change as soon as the input words change.
 * When E<sub>U</sub> is high, these contents appear on the W bus.
 
+![Adder](img/logisim_adder.PNG "")
+
 ## B register
 * The B register is another buffer register used in arithmetic operations.
 * A low ~L<sub>B</sub> and positive clock edge load the word on the W bus into the B register.
 * The two-state output drives the adder-subtracter, supplying the number to be added or subtracted from the contents of the accumulator.
 
+![B Register](img/logisim_b_register.PNG "")
+
 ## Output register
 * At the end of the computer run, the accumulator contains the answer to the problem being solved. At this point we need to transfer the answer to the outside world.
 * When E<sub>A</sub> is high and ~L<sub>O</sub> is low, the next positive clock edge loads the accumulator word into the ouput register.
+
+![Output register](img/logisim_output_register.PNG "")
 
 ## Display
 * The binary dispaly is a row of eight light-emmitting diodes. 
