@@ -4,6 +4,8 @@
 
 ![SAP1 Architecture](img/sap1_architecture.PNG "")
 
+![SAP1 main](img/logisim_main.PNG "")
+
 ## Program counter
 * The PC is stored at the beginning of the memory with the first instruction at binary address 0000. 
 * The PC module counts from 0000 to 1111.
