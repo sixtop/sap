@@ -38,7 +38,11 @@ Notice that a positive CLK edge occurs midway through each T state.
 
 ![SAP1 Controller](img/logisim_Controller.PNG "")
 
+### Control matrix
+
 ![SAP1 Control Matrix](img/logisim_control_matrix.PNG "")
+
+### Instruction decoder
 
 ![SAP1 Instruction decoder](img/logisim_instruction_decoder.PNG "")
 
