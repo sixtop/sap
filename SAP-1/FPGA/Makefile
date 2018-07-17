@@ -1,5 +1,6 @@
 OUTDIR = bin
 SRCDIR = src
+TSTDIR = tst
 OUTFILE = output
 
 MKDIR = mkdir
@@ -8,6 +9,7 @@ VCS = vcs
 VCS_FLAGS = -lca -t ps -sverilog -debug_all -timescale=1ns/100ps +lint=PCWM
 
 SOURCES = $(wildcard $(SRCDIR)/*.sv)
+TESTBENCHES = $(wildcard $(TSTDIR)/*.sv)
 
 all: compile
 
@@ -18,7 +20,7 @@ setup:
 	$(MKDIR) -p $(OUTDIR)
 
 compile: setup
-	$(VCS) $(SOURCES) $(VCS_FLAGS) -o ${OUTDIR}/$(OUTFILE)
+	$(VCS) $(SOURCES) $(TESTBENCHES) $(VCS_FLAGS) -o ${OUTDIR}/$(OUTFILE)
 
 run:
 	export DISPLAY=gmslctl04:2.0

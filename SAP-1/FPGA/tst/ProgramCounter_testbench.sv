@@ -1,4 +1,4 @@
-module testbench;
+module program_counter_testbench;
     logic tb_clk, tb_clk_bar;
     logic tb_reset, tb_reset_bar;
     logic Cp;

@@ -7,6 +7,7 @@
 **/inter.vpd
 **/ucli.key
 **/simulation/
+**/.synopsys_dve_rebuild.tcl
 
 #Eclipse artifacts
 **/.dvt/
