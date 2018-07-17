@@ -3,7 +3,7 @@ module testbench;
     logic tb_reset, tb_reset_bar;
     logic Cp;
     logic Ep;
-    wire [3:0] out;
+    //wire [3:0] out;
 
     //set up clock and clock_bar
     initial begin
@@ -46,7 +46,7 @@ module testbench;
         .CLR_bar(tb_reset_bar),
         .Cp(Cp),
         .Ep(Ep),
-        .W_bus(out)
+        .W_bus()
     );
 
 endmodule
