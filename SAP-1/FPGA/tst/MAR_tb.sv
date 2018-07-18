@@ -29,10 +29,6 @@ module mar_testbench;
             Lm = 1'b1;            
             #(120);
         end
-
-        //#(1ms);
-        //$stop;
-
     end
 
     MAR test(

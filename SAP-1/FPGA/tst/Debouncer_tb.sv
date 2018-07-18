@@ -6,7 +6,7 @@ module debouncer_testbench;
     initial begin
         tb_clk = 1'b0;
         tb_clr = 1'b0;
-        tb_pushbutton = 1'b0;
+        tb_pushbutton = 1'b1;
         forever #(10) tb_clk = ~tb_clk;
     end
     
@@ -19,9 +19,9 @@ module debouncer_testbench;
         repeat (10) begin 
             
             tb_pushbutton = 1'b1;
-            #(1500);            
+            #(1ms);            
             tb_pushbutton = 1'b0;
-            #(500);
+            #(1us);
         end
         
         repeat (2) begin 
@@ -48,12 +48,10 @@ module debouncer_testbench;
             tb_pushbutton = 1'b0;
             #(500);
         end
-        
-        $stop;
 
     end
 
-    debouncer #(.WIDTH(16)) test(
+    Debouncer #(.WIDTH(8)) test(
         .clk(tb_clk),
         .clr(tb_clr),
         .PushButton(tb_pushbutton),

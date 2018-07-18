@@ -1,4 +1,4 @@
-module debouncer #(parameter WIDTH=15)(
+module Debouncer #(parameter WIDTH=15)(
 	input logic clk,
         input logic clr,
         input logic PushButton,
@@ -19,19 +19,17 @@ module debouncer #(parameter WIDTH=15)(
     	//reset signals
         if(~clr)begin
             PB_sync_0 = 1'b1;
-            PB_sync_1 = 1'b1;
+            PB_sync_1 = 1'b1;            
             PB_state = 1'b0;
             PB_cnt = {WIDTH{1'b0}};
         end
 
-        else begin
-            //PB was depressed
-            if(PB_sync_1) begin
+        else begin            
+            if(PB_sync_1) begin //PB is depressed
                 PB_cnt <= 1'b0;
                 PB_state <= 1'b0;
             end
-            else
-            begin
+            else begin //PB is pressed
                 if(PB_cnt == {WIDTH{1'b1}}) PB_state <= 1'b1;
                 else PB_cnt <= PB_cnt + 1'b1;
             end
