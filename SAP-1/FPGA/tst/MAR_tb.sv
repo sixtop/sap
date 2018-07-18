@@ -31,7 +31,7 @@ module mar_testbench;
         end
 
         //#(1ms);
-        $stop;
+        //$stop;
 
     end
 
