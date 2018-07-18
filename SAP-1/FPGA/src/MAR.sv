@@ -6,8 +6,8 @@ module MAR (
     );
 
     always_ff @ (posedge CLK) begin
-        if(load)
-            Q <= D;
+        if(load) Q <= D;
+        else Q <= Q;
     end
     
 endmodule

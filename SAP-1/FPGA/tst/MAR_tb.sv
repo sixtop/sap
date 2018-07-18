@@ -20,7 +20,7 @@ module mar_testbench;
         #(110);
 
         //generate states
-        forever begin
+        repeat (50) begin
             // T1 state
             Lm = 1'b0;            
             #(60);
@@ -29,6 +29,9 @@ module mar_testbench;
             Lm = 1'b1;            
             #(120);
         end
+
+        //#(1ms);
+        $stop;
 
     end
 
