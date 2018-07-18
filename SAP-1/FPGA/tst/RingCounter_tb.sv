@@ -24,7 +24,7 @@ module ring_counter_testbench;
 
     end
 
-    RingCounter test(
+    RingCounter #(.STATES(10)) test(
         .CLK(tb_clk),
         .CLR_bar(~tb_clr),
         .state()
