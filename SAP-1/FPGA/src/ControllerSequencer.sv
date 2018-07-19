@@ -92,7 +92,7 @@ module controller_sequencer(
         .SUB(SUB)        
         );
 
-
+    //Control Matrix
     ControlMatrix cm(
         .T1(CurrentState[0]),
         .T2(CurrentState[1]),
