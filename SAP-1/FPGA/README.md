@@ -42,29 +42,38 @@ make run
 
 
 ## Program Counter
+![FPGA_pc](img/pc_sch.PNG "")
 ![FPGA_pc](img/pc.PNG "")
 
 ## Instruction Register
+![FPGA_pc](img/ir_sch.PNG "")
 ![FPGA_pc](img/ir.PNG "")
 
 ## MAR
+![FPGA_pc](img/mar_sch.PNG "")
 ![FPGA_pc](img/mar.PNG "")
 
 ## ROM
+![FPGA_pc](img/rom_sch.PNG "")
 ![FPGA_pc](img/rom.PNG "")
 
 ## Accumulator
+![FPGA_pc](img/acc_sch.PNG "")
 ![FPGA_pc](img/acc.PNG "")
 
 ## B Register
+![FPGA_pc](img/breg_sch.PNG "")
 ![FPGA_pc](img/breg.PNG "")
 
 ## Adder/Subtractor
+![FPGA_pc](img/addsub_sch.PNG "")
 ![FPGA_pc](img/addsub.PNG "")
 
 ## Output Register
+![FPGA_pc](img/or_sch.PNG "")
 ![FPGA_pc](img/or.PNG "")
 
 ## Decoded Instruction
+![FPGA_pc](img/inst_sch.PNG "")
 ![FPGA_pc](img/inst.PNG "")
 
