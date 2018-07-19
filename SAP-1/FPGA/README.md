@@ -44,10 +44,27 @@ make run
 ## Program Counter
 ![FPGA_pc](img/pc.PNG "")
 
-## Program Counter
-## Program Counter
-## Program Counter
-## Program Counter
-## Program Counter
+## Instruction Register
+![FPGA_pc](img/ir.PNG "")
 
+## MAR
+![FPGA_pc](img/mar.PNG "")
+
+## ROM
+![FPGA_pc](img/rom.PNG "")
+
+## Accumulator
+![FPGA_pc](img/acc.PNG "")
+
+## B Register
+![FPGA_pc](img/breg.PNG "")
+
+## Adder/Subtractor
+![FPGA_pc](img/addsub.PNG "")
+
+## Output Register
+![FPGA_pc](img/or.PNG "")
+
+## Decoded Instruction
+![FPGA_pc](img/instr.PNG "")
 
