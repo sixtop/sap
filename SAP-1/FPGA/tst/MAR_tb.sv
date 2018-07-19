@@ -33,8 +33,8 @@ module mar_testbench;
     end
 
     MAR test(
-        .W_low_nibble(input_address),
-        .ROM_address(),
+        .mar_input(input_address),
+        .mar_output(),
         .Lm_bar(~Lm),
         .CLK(tb_clk)        
     );

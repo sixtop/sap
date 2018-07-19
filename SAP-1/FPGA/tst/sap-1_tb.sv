@@ -5,27 +5,27 @@ module sap1_testbench;
     logic tb_ManualAuto_sw;
 
     initial begin
-        tb_clk = 1'b0;
-        tb_ClearStart_pb = 1; //0-Clear, 1-Start
-        tb_SingleStep_sw = 0;
-        tb_ManualAuto_sw = 1; //0-manual, 1-auto
+        tb_clk = 1'b0;        
         forever #(10) tb_clk = ~tb_clk;
     end
 
-    //simulate states
     initial begin
-
-        //generate CLR
+        tb_ClearStart_pb = 1; //0-Clear, 1-Start
+        tb_SingleStep_sw = 0; //single step pulse
+        tb_ManualAuto_sw = 1; //0-manual, 1-auto
         #(1ms);
+
         tb_ClearStart_pb = 0; //clear
-
         #(1ms);
-        tb_ClearStart_pb = 1; //clear
 
+        tb_ClearStart_pb = 1; //clear
         #(5ms);
-        tb_ManualAuto_sw = 0; //auto
+
+        $stop();
+
 
         //simulate pulses for manual mode
+        /*tb_ManualAuto_sw = 0; //manual
         repeat (50) begin
             #(1ms);
             tb_SingleStep_sw = 0;
@@ -33,8 +33,8 @@ module sap1_testbench;
             tb_SingleStep_sw = 1;
         end
 
-        #(50ms);
-        $stop();
+        #(5ms);
+        $stop();*/
     end
 
     sap1 test(

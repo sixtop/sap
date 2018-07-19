@@ -33,7 +33,7 @@ module InstructionRegister(
                 i <= data_in[7:4];
             end
 
-            // Enable active, output stored data/instruction
+            /*// Enable active, output stored data/instruction
             if (~Ei_bar) begin
                 data_out <= d;
                 instr_out <= i;
@@ -43,9 +43,12 @@ module InstructionRegister(
             else begin
             	data_out <= 4'bz;
             	instr_out <= 4'bz;
-            end
+            end*/
         end
     end
+
+    assign data_out  = ~Ei_bar ? d : 4'bz;
+    assign instr_out = i;
     
     
 endmodule

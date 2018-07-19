@@ -26,8 +26,10 @@ module ProgramCounter(
         //stays the same
         else
             count <= count;
-        
-        //Enable output
+    end
+
+    always @(*) begin
+    	//Enable output
         if (Ep)
             W_bus <= count; 
 

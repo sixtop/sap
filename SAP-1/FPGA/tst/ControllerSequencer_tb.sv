@@ -37,7 +37,7 @@ module controller_sequencer_testbench;
 
     controller_sequencer #(.DebounceDelay(8)) test(
         .base_clock(tb_clk),
-        .inst(tb_instr),
+        .instruction_input(tb_instr),
         .S5_CleanStart_pb(tb_ClearStart_pb),
         .S6_SingleStep_pb(tb_SingleStep_sw),
         .S7_ManualAuto_sw(tb_ManualAuto_sw),

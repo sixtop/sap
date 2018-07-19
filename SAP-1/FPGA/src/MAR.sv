@@ -6,15 +6,15 @@ module MAR (
         input logic Lm_bar,
 
         //input from W bus
-        input wire [3:0] W_low_nibble,
+        input wire [3:0] mar_input,
 
         //output to RAM
-        output logic [3:0] ROM_address
+        output logic [3:0] mar_output
     );
 
     always_ff @ (posedge CLK) begin
-        if(~Lm_bar) ROM_address <= W_low_nibble;
-        else ROM_address <= ROM_address;
+        if(~Lm_bar) mar_output <= mar_input;
+        else mar_output <= mar_output;
     end
     
 endmodule

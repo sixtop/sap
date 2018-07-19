@@ -4,7 +4,7 @@ module controller_sequencer(
         input logic S7_ManualAuto_sw,         // Manual/Auto switch
 
         //Instruction bus
-        input logic [3:0] inst,
+        input logic [3:0] instruction_input,
 
         //System clear signal
         output logic CLR,
@@ -84,7 +84,7 @@ module controller_sequencer(
     //Instruction Decoder
     logic LDA, ADD, SUB, OUT, HLT;
     InstructionDecoder id(
-        .inst(inst),
+        .inst(instruction_input),
         .ADD(ADD),
         .HLT(HLT),
         .LDA(LDA),
@@ -138,12 +138,25 @@ module InstructionDecoder(
 	output logic OUT,
 	output logic HLT
     );
+
+    always_comb begin
+    	LDA = 1'b0;    
+    	ADD = 1'b0;
+    	SUB = 1'b0;
+    	OUT = 1'b0;
+    	HLT = 1'b0;
+    	if     (inst == 4'b0000) LDA = 1'b1;
+    	else if(inst == 4'b0001) ADD = 1'b1;
+    	else if(inst == 4'b0010) SUB = 1'b1;
+    	else if(inst == 4'b1110) OUT = 1'b1;
+    	else if(inst == 4'b1111) HLT = 1'b1;
+    end
     
-    assign LDA = inst == 4'b0000;
+    /*assign LDA = inst == 4'b0000;
     assign ADD = inst == 4'b0001;
     assign SUB = inst == 4'b0010;
     assign OUT = inst == 4'b1110;
-    assign HLT = inst == 4'b1111;
+    assign HLT = inst == 4'b1111;*/
 
 endmodule
 
