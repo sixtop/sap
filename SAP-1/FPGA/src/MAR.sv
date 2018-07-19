@@ -6,7 +6,7 @@ module MAR (
         input logic Lm_bar,
 
         //input from W bus
-        input logic [3:0] W_low_nibble,
+        input wire [3:0] W_low_nibble,
 
         //output to RAM
         output logic [3:0] ROM_address

@@ -6,7 +6,7 @@ OUTFILE = output
 MKDIR = mkdir
 RM = rm -rf
 VCS = vcs
-VCS_FLAGS = -lca -t ps -sverilog -debug_all -timescale=1ns/100ps +lint=PCWM
+VCS_FLAGS = -lca -t ps -sverilog -debug_all -timescale=1ns/100ps +lint=PCWM +lint=TFIPC-L
 
 SOURCES = $(wildcard $(SRCDIR)/*.sv)
 TESTBENCHES = $(wildcard $(TSTDIR)/*.sv)

@@ -11,7 +11,7 @@ module InstructionRegister(
     input logic Ei_bar,
 
     //w bus input
-    input logic [7:0] data_in,
+    input wire [7:0] data_in,
 
     //data and instruction
     output reg [3:0] data_out,

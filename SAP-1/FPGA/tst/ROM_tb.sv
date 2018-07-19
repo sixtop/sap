@@ -31,8 +31,8 @@ module rom_testbench;
     end
 
     ROM test(
-        .address(input_address),
-        .data(),
+        .ROM_address(input_address),
+        .ROM_data(),
         .CE_bar(~CE)
     );
 

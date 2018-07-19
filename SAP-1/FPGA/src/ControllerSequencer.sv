@@ -173,7 +173,7 @@ module ControlMatrix(
     output logic Su,
     output logic Eu,
     output logic Lb_bar,
-    output logic Lo_bar,
+    output logic Lo_bar
     );
 
     assign Cp     = T2;
