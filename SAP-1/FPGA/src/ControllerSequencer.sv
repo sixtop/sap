@@ -91,6 +91,36 @@ module controller_sequencer(
         .OUT(OUT),
         .SUB(SUB)        
         );
+
+
+    ControlMatrix cm(
+        .T1(CurrentState[0]),
+        .T2(CurrentState[1]),
+        .T3(CurrentState[2]),
+        .T4(CurrentState[3]),
+        .T5(CurrentState[4]),
+        .T6(CurrentState[5]),
+
+        .LDA(LDA),
+        .ADD(ADD),
+        .SUB(SUB),
+        .OUT(OUT),
+
+        .Cp    (Cp),
+        .Ep    (Ep),
+        .Lm_bar(Lm_bar),
+        .CE_bar(CE_bar),
+
+        .Li_bar(Li_bar),
+        .Ei_bar(Ei_bar),
+        .La_bar(La_bar),
+        .Ea    (Ea),
+
+        .Su    (Su),
+        .Eu    (Eu),
+        .Lb_bar(Lb_bar),
+        .Lo_bar(Lo_bar)
+        );
     
     //System clock
     assign CLK_manual = ~HLT & S6_deb     & ~S7_deb; // not halted & pulse on S6 & manual
@@ -114,5 +144,51 @@ module InstructionDecoder(
     assign SUB = inst == 4'b0010;
     assign OUT = inst == 4'b1110;
     assign HLT = inst == 4'b1111;
+
+endmodule
+
+module ControlMatrix(
+    input logic LDA,
+    input logic ADD,
+    input logic SUB,
+    input logic OUT,
+
+    input logic T1,
+    input logic T2,
+    input logic T3,
+    input logic T4,
+    input logic T5,
+    input logic T6,
+
+    output logic Cp,
+    output logic Ep,
+    output logic Lm_bar,
+    output logic CE_bar,
+
+    output logic Li_bar,
+    output logic Ei_bar,
+    output logic La_bar,
+    output logic Ea,
+
+    output logic Su,
+    output logic Eu,
+    output logic Lb_bar,
+    output logic Lo_bar,
+    );
+
+    assign Cp     = T2;
+    assign Ep     = T1;
+    assign Lm_bar = ~(T1 | (LDA&T4) | (ADD&T4) | (SUB&T4));
+    assign CE_bar = ~(T3 | (LDA&T5) | (ADD&T5) | (SUB&T5));
+
+    assign Li_bar = ~T3;
+    assign Ei_bar = ~((LDA&T4) | (ADD&T4) | (SUB&T4));
+    assign La_bar = ~((LDA&T5) | (ADD&T6) | (SUB&T6));
+    assign Ea     = OUT&T4;
+
+    assign Su     = SUB&T6;
+    assign Eu     =  ((ADD&T6) | (SUB&T6));
+    assign Lb_bar = ~((ADD&T5) | (SUB&T5));
+    assign Lo_bar = ~(OUT&T4);
 
 endmodule
