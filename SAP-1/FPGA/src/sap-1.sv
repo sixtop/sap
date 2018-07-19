@@ -16,6 +16,9 @@ module sap1 (
     logic [3:0] ir_data_output;
     logic [3:0] ir_inst_output;
 
+    //Adder sub output
+    logic [7:0] adder_res;
+
     controller_sequencer conseq(
         //inputs from FPGA
         .base_clock      (sap_base_clock),
@@ -62,6 +65,7 @@ module sap1 (
     assign mar_input = Ep ? program_counter : ~Ei_bar ? ir_data_output : 4'bz;
     MAR mar(
         .CLK         (CLK),
+        .CLR_bar     (CLR_bar),
         .Lm_bar      (Lm_bar),
         .mar_input   (mar_input),
         .mar_output  (mar_rom_address)
@@ -88,15 +92,17 @@ module sap1 (
         .instr_out(ir_inst_output)
     );
 
-    logic [7:0] accumulator_out;
+    logic [7:0] acc_adder_out, accumulator_out;
+    logic [7:0] accumulator_in;
+    assign accumulator_in = ~CE_bar ? rom_output_data : Eu ? adder_res : 8'bz;
     Accumulator acc(
         .CLK           (CLK),
         .CLR_bar       (CLR_bar),
         .La_bar        (La_bar),
         .Ea            (Ea),
-        .data_in       (rom_output_data),
-        .data_out      (),
-        .adder_sub_out (accumulator_out)
+        .data_in       (accumulator_in),
+        .data_out      (accumulator_out),
+        .adder_sub_out (acc_adder_out)
     );
 
     logic [7:0] b_register_out;
@@ -108,11 +114,11 @@ module sap1 (
         .data_out(b_register_out)
     );
 
-    logic [7:0] adder_res;
+    
     AdderSubtracter addsub(
         .Su       (Su),
         .Eu       (Eu),
-        .a_data_in(accumulator_out),
+        .a_data_in(acc_adder_out),
         .b_data_in(b_register_out),
         .data_out (adder_res)
         );
@@ -120,8 +126,8 @@ module sap1 (
     logic [7:0] output_register;
     OutputRegister out(
     	.Lo_bar  (Lo_bar),
-    	.data_in (output_register),
-    	.data_out()
+    	.data_in (accumulator_out),
+    	.data_out(output_register)
         );
 
 endmodule
