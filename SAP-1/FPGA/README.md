@@ -66,5 +66,5 @@ make run
 ![FPGA_pc](img/or.PNG "")
 
 ## Decoded Instruction
-![FPGA_pc](img/instr.PNG "")
+![FPGA_pc](img/inst.PNG "")
 
