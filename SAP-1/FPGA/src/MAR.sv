@@ -14,7 +14,7 @@ module MAR (
     );
 
     always_ff @ (posedge CLK or negedge CLR_bar) begin
-    	if(~CLR_bar) mar_output <= 4'bz;
+    	if(~CLR_bar) mar_output <= 4'hF;
     	else begin
 	        if(~Lm_bar) mar_output <= mar_input;
 	        else mar_output <= mar_output;

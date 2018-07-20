@@ -10,6 +10,6 @@ module OutputRegister(
         output reg [7:0] data_out
     );
 
-    assign data_out = ~Lo_bar ? data_in : 8'bz;
+    assign data_out = ~Lo_bar ? data_in : 8'hFF;
 
 endmodule

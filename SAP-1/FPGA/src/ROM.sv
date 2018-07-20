@@ -15,7 +15,7 @@ module ROM #(parameter WordSize = 8, parameter AddressSize = 4)(
         $readmemh("./src/rom.bin", rom);
     end
 
-    assign rom_output_data = ~CE_bar ? rom[rom_input_address] : {WordSize{1'bz}};
+    assign rom_output_data = ~CE_bar ? rom[rom_input_address] : {WordSize{1'b1}};
 
 endmodule
 

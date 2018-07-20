@@ -47,7 +47,7 @@ module InstructionRegister(
         end
     end
 
-    assign data_out  = ~Ei_bar ? d : 4'bz;
+    assign data_out  = ~Ei_bar ? d : 4'hF;
     assign instr_out = i;
     
     

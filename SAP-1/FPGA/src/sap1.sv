@@ -62,7 +62,7 @@ module sap1 (
     //MAR receives input from program counter and instruction register!
     logic [3:0] mar_input;
     logic [3:0] mar_rom_address;
-    assign mar_input = Ep ? program_counter : ~Ei_bar ? ir_data_output : 4'bz;
+    assign mar_input = Ep ? program_counter : ~Ei_bar ? ir_data_output : 4'hF;
     MAR mar(
         .CLK         (CLK),
         .CLR_bar     (CLR_bar),
@@ -94,7 +94,7 @@ module sap1 (
 
     logic [7:0] acc_adder_out, accumulator_out;
     logic [7:0] accumulator_in;
-    assign accumulator_in = ~CE_bar ? rom_output_data : Eu ? adder_res : 8'bz;
+    assign accumulator_in = ~CE_bar ? rom_output_data : Eu ? adder_res : 8'hFF;
     Accumulator acc(
         .CLK           (CLK),
         .CLR_bar       (CLR_bar),

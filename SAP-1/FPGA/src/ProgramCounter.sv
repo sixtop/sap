@@ -35,7 +35,7 @@ module ProgramCounter(
 
         //high impedance to the W bus           
         else
-            W_bus <= 4'bzzzz;
+            W_bus <= 4'hF;
     end
 
 endmodule

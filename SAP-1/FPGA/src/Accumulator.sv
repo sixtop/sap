@@ -33,7 +33,7 @@ module Accumulator(
         end
     end
 
-    assign data_out      = Ea ? acc : 8'bz;
+    assign data_out      = Ea ? acc : 8'hFF;
     assign adder_sub_out = acc;
     
 endmodule

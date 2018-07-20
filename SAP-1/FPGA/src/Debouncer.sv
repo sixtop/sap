@@ -9,8 +9,8 @@ module Debouncer #(parameter WIDTH=15)(
 
     reg PB_sync_0;
     reg PB_sync_1;
-    always @(posedge clk) PB_sync_0 <= ~PushButton;  // invert PB to make PB_sync_0 active high
-    always @(posedge clk) PB_sync_1 <= PB_sync_0;
+    //always @(posedge clk) PB_sync_0 <= ~PushButton;  // invert PB to make PB_sync_0 active high
+    //always @(posedge clk) PB_sync_1 <= PB_sync_0;
 
     reg [WIDTH-1:0] PB_cnt;
 
@@ -23,8 +23,9 @@ module Debouncer #(parameter WIDTH=15)(
             PB_state = 1'b0;
             PB_cnt = {WIDTH{1'b0}};
         end
-
-        else begin            
+        else begin
+            PB_sync_0 <= ~PushButton;  // invert PB to make PB_sync_0 active high
+            PB_sync_1 <= PB_sync_0;
             if(PB_sync_1) begin //PB is depressed
                 PB_cnt <= 1'b0;
                 PB_state <= 1'b0;

@@ -14,6 +14,6 @@ module AdderSubtracter(
     output reg [7:0] data_out
     );
 
-    assign data_out  = Eu ? (Su ? a_data_in - b_data_in : a_data_in + b_data_in) : 8'bz;
+    assign data_out  = Eu ? (Su ? a_data_in - b_data_in : a_data_in + b_data_in) : 8'hFF;
     
 endmodule
