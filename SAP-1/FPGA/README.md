@@ -2,9 +2,9 @@
 
 There are few architectural changes to make SAP-1 architecture FPGA-compliant. One of them is that we cannot have 3-state buses in our FPGA design. To overcome this limitation, we use multiplexed inputs using the appropiate Control Word signals.
 
-<object data="https://github.com/sixtop/sap/blob/master/SAP-1/FPGA/doc/vcs.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/sixtop/sap/blob/master/SAP-1/FPGA/doc/vcs.pdf">
-    <p>The complete SAP-1 architecture can be found here: <a href="https://github.com/sixtop/sap/blob/master/SAP-1/FPGA/doc/vcs.pdf">Download PDF</a>.</p>
+<object data="https://github.com/sixtop/sap/blob/master/SAP-1/FPGA/doc/sap1%20-%20rtl.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/sixtop/sap/blob/master/SAP-1/FPGA/doc/sap1%20-%20rtl.pdf">
+    <p>The complete SAP-1 architecture can be found here: <a href="https://github.com/sixtop/sap/blob/master/SAP-1/FPGA/doc/sap1%20-%20rtl.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 
