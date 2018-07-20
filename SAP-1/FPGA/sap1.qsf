@@ -1,16 +1,56 @@
+set_global_assignment -name FAMILY "Arria 10"
+set_global_assignment -name DEVICE 10AX115S2F45I1SG
 set_global_assignment -name TOP_LEVEL_ENTITY sap1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "18.0.0 SP0.06"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:08:17  JULY 20, 2018"
+
+##########################################################################
+# 50MHz Reference Clock in Arria 10 Eval Kit
+##########################################################################
+set_location_assignment PIN_AU33 -to sap_base_clock
+set_instance_assignment -name IO_STANDARD "1.8 V" -to sap_base_clock
+##########################################################################
+# User push buttons
+##########################################################################
+set_location_assignment PIN_U11 -to sap_CleanStart_pb
+set_location_assignment PIN_T12 -to sap_SingleStep_pb
+#set_location_assignment PIN_U12 -to reset_c
+set_instance_assignment -name IO_STANDARD "1.8 V" -to sap_CleanStart_pb -entity sap1
+set_instance_assignment -name IO_STANDARD "1.8 V" -to sap_SingleStep_pb -entity sap1
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to reset_c
+##########################################################################
+# Dip Switch
+##########################################################################
+set_location_assignment PIN_A24 -to sap_ManualAuto_sw
+#set_location_assignment PIN_B23 -to dipsw[1]
+#set_location_assignment PIN_A23 -to dipsw[2]
+#set_location_assignment PIN_B22 -to dipsw[3]
+#set_location_assignment PIN_A22 -to dipsw[4]
+#set_location_assignment PIN_B21 -to dipsw[5]
+#set_location_assignment PIN_C21 -to dipsw[6]
+#set_location_assignment PIN_A20 -to dipsw[7]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to sap_ManualAuto_sw -entity sap1
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to dipsw[1]
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to dipsw[2]
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to dipsw[3]
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to dipsw[4]
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to dipsw[5]
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to dipsw[6]
+#set_instance_assignment -name IO_STANDARD "1.8 V" -to dipsw[7]
 set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 SP0.06 Pro Edition"
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
-set_global_assignment -name DEVICE 10AX115S2F45I1SG
-set_global_assignment -name FAMILY "Arria 10"
-set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name POWER_AUTO_COMPUTE_TJ ON
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+
+
+set_global_assignment -name SOURCE_FILE sap1.qsf
 set_global_assignment -name SYSTEMVERILOG_FILE src/sap1.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/RingCounter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/ROM.sv
@@ -23,4 +63,4 @@ set_global_assignment -name SYSTEMVERILOG_FILE src/ControllerSequencer.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/BRegister.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/AdderSubtracter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/Accumulator.sv
-set_global_assignment -name SOURCE_FILE sap1.qsf
+
