@@ -40,16 +40,9 @@ make run
  #####  -o
  Specifies the name of the executable file. In UNIX the default is simv.
 
-## Controller/Sequencer
-![FPGA_pc](img/controller_sch.PNG "")
-
 ## Program Counter
 ![FPGA_pc](img/pc_sch.PNG "")
 ![FPGA_pc](img/pc.PNG "")
-
-## Instruction Register
-![FPGA_pc](img/ir_sch.PNG "")
-![FPGA_pc](img/ir.PNG "")
 
 ## MAR
 ![FPGA_pc](img/mar_sch.PNG "")
@@ -58,6 +51,22 @@ make run
 ## ROM
 ![FPGA_pc](img/rom_sch.PNG "")
 ![FPGA_pc](img/rom.PNG "")
+
+## Instruction Register
+![FPGA_pc](img/ir_sch.PNG "")
+![FPGA_pc](img/ir.PNG "")
+
+## Controller/Sequencer
+![FPGA_pc](img/controller_sch.PNG "")
+### Instruction Decoder
+![FPGA_pc](img/instdec_sch.PNG "")
+### Debouncer
+![FPGA_pc](img/deb_sch.PNG "")
+### Ring Counter
+![FPGA_pc](img/ring_counter_sch.PNG "")
+### Control Matrix
+![FPGA_pc](img/cm_sch.PNG "")
+
 
 ## Accumulator
 ![FPGA_pc](img/acc_sch.PNG "")
@@ -74,8 +83,3 @@ make run
 ## Output Register
 ![FPGA_pc](img/or_sch.PNG "")
 ![FPGA_pc](img/or.PNG "")
-
-## Decoded Instruction
-![FPGA_pc](img/inst_sch.PNG "")
-![FPGA_pc](img/inst.PNG "")
-
