@@ -1,5 +1,6 @@
 module mar_testbench;
     logic tb_clk;
+    logic tb_clr;
     logic Lm;
 
     logic [3:0] input_address;
@@ -17,6 +18,7 @@ module mar_testbench;
 
     //simulate states
     initial begin
+    	tb_clr = 1'b1;
         Lm = 1'b1;
         #(110);
 
@@ -36,7 +38,8 @@ module mar_testbench;
         .mar_input(input_address),
         .mar_output(),
         .Lm_bar(~Lm),
-        .CLK(tb_clk)        
+        .CLK(tb_clk),
+        .CLR_bar(~tb_clr)        
     );
 
 endmodule
