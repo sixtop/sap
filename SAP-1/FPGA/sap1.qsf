@@ -1,0 +1,26 @@
+set_global_assignment -name TOP_LEVEL_ENTITY sap1
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "18.0.0 SP0.06"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:08:17  JULY 20, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 SP0.06 Pro Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name DEVICE 10AX115S2F45I1SG
+set_global_assignment -name FAMILY "Arria 10"
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name POWER_AUTO_COMPUTE_TJ ON
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name SYSTEMVERILOG_FILE src/sap1.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/RingCounter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ROM.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ProgramCounter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/OuputRegister.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/MAR.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/InstructionRegister.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/Debouncer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ControllerSequencer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/BRegister.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/AdderSubtracter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/Accumulator.sv
+set_global_assignment -name SOURCE_FILE sap1.qsf
