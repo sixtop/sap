@@ -40,6 +40,8 @@ make run
  #####  -o
  Specifies the name of the executable file. In UNIX the default is simv.
 
+## Controller/Sequencer
+![FPGA_pc](img/controller_sch.PNG "")
 
 ## Program Counter
 ![FPGA_pc](img/pc_sch.PNG "")
